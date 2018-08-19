@@ -16,6 +16,7 @@ $('#btn-login').click(function () {
 	})
 	.then(responseData => {
 		localStorage.setItem('token', responseData.data.token);
+		localStorage.setItem('username', username);
 		window.location.href='room.html?room=' + room;
 	})
 	.catch(e => {
