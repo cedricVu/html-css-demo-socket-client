@@ -6,7 +6,7 @@
 </head>
 <body>
 <div class="container">
-    <form class="form-horizontal" role="form" method="GET" action="room.html">
+    <form class="form-horizontal" role="form">
         <div class="row">
             <div class="col-md-3"></div>
             <div class="col-md-6">
@@ -21,16 +21,9 @@
                     <label class="sr-only" for="username">Username</label>
                     <div class="input-group mb-2 mr-sm-2 mb-sm-0">
                         <div class="input-group-addon" style="width: 2.6rem"><i class="fa fa-at"></i></div>
-                        <input type="text" name="username" class="form-control" id="username"
+                        <input type="text" name="username" class="form-control" id="input-username"
                                placeholder="aido" required autofocus>
                     </div>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="form-control-feedback">
-                    <span class="text-danger align-middle">
-                        <i class="fa fa-close"></i> Example error message
-                    </span>
                 </div>
             </div>
         </div>
@@ -41,31 +34,14 @@
                     <label class="sr-only" for="password">Password</label>
                     <div class="input-group mb-2 mr-sm-2 mb-sm-0">
                         <div class="input-group-addon" style="width: 2.6rem"><i class="fa fa-key"></i></div>
-                        <input type="password" name="password" class="form-control" id="password"
+                        <input type="password" name="password" class="form-control" id="input-password"
                                placeholder="Password" required>
                     </div>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="form-control-feedback">
-                    <span class="text-danger align-middle">
-                    <!-- Put password error message here -->    
-                    </span>
                 </div>
             </div>
         </div>
         <div class="row">
             <div class="col-md-3"></div>
-            <div class="col-md-6">
-                <div class="form-group">
-                    <label class="sr-only" for="password">Re Password</label>
-                    <div class="input-group mb-2 mr-sm-2 mb-sm-0">
-                        <div class="input-group-addon" style="width: 2.6rem"><i class="fa fa-key"></i></div>
-                        <input type="password" name="re-password" class="form-control" id="re-password"
-                               placeholder="Re Password" required>
-                    </div>
-                </div>
-            </div>
             <div class="col-md-3">
                 <div class="form-control-feedback">
                     <span class="text-danger align-middle">
@@ -80,16 +56,31 @@
         <div class="row" style="padding-top: 1rem">
             <div class="col-md-3"></div>
             <div class="col-md-6">
-                <button type="button" id="btn-sign-up" class="btn btn-success"><i class="fa fa-user-plus"></i> Sign up</button>
-                <a href="login.html">Back to login?</a> |
+                <button type="button" id="btn-login" class="btn btn-success"><i class="fa fa-sign-in"></i> Login</button>
+                <a href="sign-up.html">Not have account?</a> |
                 <a href="forgot-password.html">Forgot Your Password?</a>
+            </div>
+            <fb:login-button 
+              scope="public_profile,email"
+              onlogin="checkLoginState();">
+            </fb:login-button>
+        </div>
+        <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-6">
+                <div class="form-control-feedback">
+                    <span class="text-danger align-middle" id='error-message'>
+                    </span>
+                </div>
             </div>
         </div>
     </form>
 </div>
 </body>
-<script type="text/javascript" src="public/js/jquery.min.js"></script>
-<script type="text/javascript" src="public/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="public/js/my-js.js"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/authentication.js"></script>
+<script type="text/javascript" src="js/facebook-sdk.js"></script>
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
 <link rel="stylesheet" href="css/font-awesome.min.css">
 </html>
